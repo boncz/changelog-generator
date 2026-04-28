@@ -15,6 +15,43 @@ export interface DocChunk {
   score?: number;
 }
 
+// Common docs paths to try, in order of likelihood
+const DOCS_PATHS = [
+  "docs",
+  "documentation",
+  "apps/docs/content/guides",
+  "website/docs",
+  "packages/docs",
+  "content/docs",
+  "src/docs",
+];
+
+export async function findDocsPath(
+  owner: string,
+  repo: string,
+  customPath?: string
+): Promise<string | null> {
+  if (customPath) return customPath;
+
+  for (const docsPath of DOCS_PATHS) {
+    try {
+      const { data } = await octokit.repos.getContent({
+        owner,
+        repo,
+        path: docsPath,
+      });
+      if (Array.isArray(data) && data.length > 0) {
+        console.log(`✓ Found docs at: ${docsPath}`);
+        return docsPath;
+      }
+    } catch {
+      // Path doesn't exist, try next
+    }
+  }
+
+  return null;
+}
+
 // Fetch markdown docs from a GitHub repo
 export async function fetchDocs(
   owner: string,
