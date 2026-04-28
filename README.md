@@ -80,7 +80,5 @@ Output is saved to the `output/` folder as a styled HTML file.
 ## This is part of a series
 
 - **Changelog Generator** ← you are here
-- **Doc Quality Evaluator** — an LLM-as-judge framework that scores whether 
-  documentation is actually good (coming soon)
-- **Doc Holiday MCP Server** — exposing doc tools to AI agents via the 
-  Model Context Protocol (coming soon)
+- **[Doc Quality Evaluator](https://github.com/boncz/doc-quality-evaluator)** — LLM-as-judge framework for scoring documentation quality
+- **[doctools-mcp](https://github.com/boncz/doctools-mcp)** — MCP server exposing doc tools to AI agents
