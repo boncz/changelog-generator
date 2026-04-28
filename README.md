@@ -6,7 +6,7 @@ reads your docs.
 Built as a portfolio project inspired by [Doc Holiday](https://doc.holiday) 
 by Sandgarden.
 
-![Changelog output](output/screenshot.png)
+![Changelog output](assets/screenshot.png)
 
 ## How it works
 
